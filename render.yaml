@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: demo-spring-boot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    env: docker
+    region: frankfurt  # or your preferred region
+    plan: free
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+    healthCheckPath: /actuator/health
